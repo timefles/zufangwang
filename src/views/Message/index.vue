@@ -1,7 +1,6 @@
 <template>
 <div>
-    <!-- 一级占位符 -->
-    <router-view></router-view>
+    <h3>咨讯</h3>
 </div>
 </template>
 
@@ -19,6 +18,9 @@ export default {
 }
 </script>
 
-<style scoped lang='less'>
-
+<style scoped>
+h3 {
+  font-size: 14px;
+  color: #333
+}
 </style>
