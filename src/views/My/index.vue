@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 登录后 -->
-    <div class="my-title">
+    <div class="my-title" v-if="user && user.token">
       <img class="my-img" src="@/img/my2.png" alt="" />
       <div class="my-info">
         <div class="my-icon">
@@ -22,7 +22,7 @@
       </div>
     </div>
     <!-- 登录前 -->
-    <div class="my-title">
+    <div class="my-title" v-else>
       <img class="my-img" src="@/img/img-my.png" alt="" />
       <div class="my-info">
         <div class="my-icon">
@@ -53,13 +53,39 @@
 </template>
 
 <script>
+import { getUserInfo } from '@/api/user'
+import { mapState } from 'vuex'
 export default {
-  created () { },
-  data () {
-    return {}
+  name: 'my',
+  async created () {
+    if (this.user && this.user.token) {
+      try {
+        const res = await getUserInfo()
+        console.log('res', res)
+        this.userInfo = res.data.data
+      } catch (err) {
+        console.log(err)
+      }
+    }
   },
-  methods: {},
-  computed: {},
+  data () {
+    return {
+      getUserInfo: {}
+    }
+  },
+  methods: {
+    async logout () {
+      try {
+        await this.$dialog.confirm({ message: '确定退出吗' })
+        this.$store.commit('setUser', {})
+      } catch (err) {
+        console.log(err)
+      }
+    }
+  },
+  computed: {
+    ...mapState(['user'])
+  },
   watch: {},
   filters: {},
   components: {}

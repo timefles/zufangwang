@@ -2,14 +2,13 @@
   <div>
     <!-- Search搜索 -->
     <van-search
-      v-model="value"
       show-action
       placeholder="请输入小区或地址"
-      @search="onSearch"
       slot="left-icon"
+      class="searchs"
     >
       <template #action>
-        <div @click="onSearch">
+        <div>
           <van-icon name="user-o" />
         </div>
       </template>
@@ -35,15 +34,51 @@
     </van-grid>
     <!-- 租房小组 -->
     <div class="group">
-      <div>租房小组</div>
-      <a href="">更多</a>
-      <div>
-        <van-grid :column-num="2">
-          <van-grid-item icon="photo-o" text="文字" />
-          <van-grid-item icon="photo-o" text="文字" />
-          <van-grid-item icon="photo-o" text="文字" />
-          <van-grid-item icon="photo-o" text="文字" />
-        </van-grid>
+      <h3 class="group-title">
+        租房小组
+        <span class="more">更多</span>
+      </h3>
+      <div class="group-body">
+        <div class="flexbox">
+          <div class="item">
+            <div class="item-content">
+              <img src="" alt="" class="left" />
+              <div class="right">
+                <p>家住回龙观</p>
+                <p>归属的感觉</p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-content">
+              <img src="" alt="" class="left" />
+              <div class="right">
+                <p>宜居四五环</p>
+                <p>大都市生活</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flexbox">
+          <div class="item">
+            <div class="item-content">
+              <img src="" alt="" class="left" />
+              <div class="right">
+                <p>喧嚣三里屯</p>
+                <p>繁华的背后</p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-content">
+              <img src="" alt="" class="left" />
+              <div class="right">
+                <p>比邻十号线</p>
+                <p>地铁心连心</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -55,7 +90,8 @@ export default {
   data () {
     return {}
   },
-  methods: {},
+  methods: {
+  },
   computed: {},
   watch: {},
   filters: {},
@@ -64,7 +100,16 @@ export default {
 </script>
 
 <style scoped lang='less'>
+.searchs {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  padding: 0 20px;
+  z-index: 2;
+}
 .my-swipe .van-swipe-item {
+  position: relative;
+  top: 0;
   color: #fff;
   height: 424px;
   text-align: center;
@@ -86,25 +131,64 @@ export default {
 .group {
   background-color: #f6f5f6;
   overflow: hidden;
-  width: 100%;
-  height: 375px;
-  div {
-    float: left;
-    overflow: hidden;
-    line-height: 100px;
-    padding-left: 20px;
-    color: #333;
-    font-weight: 700;
+  width: 710px;
+  padding: 0 20px;
+  overflow: hidden;
+  .group-title {
+    position: relative;
+    margin: 15px 0 15px 10px;
     font-size: 15px;
+    .more {
+      color: #787d82;
+      position: absolute;
+      right: 0;
+      font-size: 14px;
+      font-weight: 400;
+    }
   }
-  a {
-    float: right;
-    overflow: hidden;
-    line-height: 100px;
-    padding-right: 20px;
-    color: #787d82;
-    font-weight: 400;
-    font-size: 14px;
+  .group-body {
+    display: block;
+    width: 750px;
+    height: 374px;
+    .flexbox {
+      background-color: transparent;
+      width: 750px;
+      height: 120px;
+      margin-bottom: 10px;
+      display: flex;
+      .item {
+        width: 345px;
+        height: 100px;
+        flex: 1;
+        margin-right: 20px;
+        margin-left: 0;
+        background-color: #fff;
+        border-radius: 5px;
+        .item-content {
+          text-align: center;
+          padding: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          .left {
+            width: 100px;
+            height: 100px;
+            margin: 0 10px;
+            box-sizing: border-box;
+            flex: 1;
+          }
+          .right {
+            flex: 2;
+            p {
+              margin: 0;
+              padding: 0;
+              font-size: 14px;
+              color: #333;
+            }
+          }
+        }
+      }
+    }
   }
 }
 </style>

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <router-view />
+    <keep-alive :include="['Home']">
+      <router-view class="main" />
+    </keep-alive>
 
     <van-tabbar active-color="#58b57f" route>
       <van-tabbar-item replace to="/home" icon="wap-home-o"
