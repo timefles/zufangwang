@@ -18,7 +18,10 @@
         type="password"
         name="password"
         placeholder="请输入密码"
-        :rules="[{ required: true, message: '请输入密码' }]"
+        :rules="[
+          { required: true, message: '请输入密码' },
+          { min: 6, max: 16, message: '长度在6-16之间' },
+        ]"
       />
       <div style="margin: 16px">
         <van-button color="#56b27b" square block native-type="submit"

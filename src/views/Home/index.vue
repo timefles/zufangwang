@@ -1,18 +1,15 @@
 <template>
   <div>
     <!-- Search搜索 -->
-    <van-search
-      show-action
-      placeholder="请输入小区或地址"
-      slot="left-icon"
-      class="searchs"
-    >
-      <template #action>
-        <div>
-          <van-icon name="user-o" />
+    <van-search placeholder="请输入小区或地址" slot="left-icon" class="searchs">
+      <template #left>
+        <div class="search-left">
+          <span class="name">上海</span>
+          <van-icon name="arrow-down" />
         </div>
       </template>
     </van-search>
+    <van-icon name="user-o" class="home-icon0" />
     <!-- 轮播图 -->
     <van-swipe class="my-swipe" :autoplay="3000" indicator-color="#888888">
       <van-swipe-item>
@@ -27,10 +24,10 @@
     </van-swipe>
     <!-- Title -->
     <van-grid :column-num="4" :border="false" style="height: 100px">
-      <van-grid-item icon="home-o" text="整租" />
-      <van-grid-item icon="friends-o" text="合租" />
-      <van-grid-item icon="location-o" text="地图找房" />
-      <van-grid-item icon="home-o" text="去出租" />
+      <van-grid-item icon="home-o" text="整租" style="color: #4eaa6d" />
+      <van-grid-item icon="friends-o" text="合租" style="color: #4eaa6d" />
+      <van-grid-item icon="location-o" text="地图找房" style="color: #4eaa6d" />
+      <van-grid-item icon="home-o" text="去出租" style="color: #4eaa6d" />
     </van-grid>
     <!-- 租房小组 -->
     <div class="group">
@@ -42,7 +39,7 @@
         <div class="flexbox">
           <div class="item">
             <div class="item-content">
-              <img src="" alt="" class="left" />
+              <van-icon name="photo-fail" />
               <div class="right">
                 <p>家住回龙观</p>
                 <p>归属的感觉</p>
@@ -51,7 +48,7 @@
           </div>
           <div class="item">
             <div class="item-content">
-              <img src="" alt="" class="left" />
+              <van-icon name="photo-fail" />
               <div class="right">
                 <p>宜居四五环</p>
                 <p>大都市生活</p>
@@ -62,7 +59,7 @@
         <div class="flexbox">
           <div class="item">
             <div class="item-content">
-              <img src="" alt="" class="left" />
+              <van-icon name="photo-fail" />
               <div class="right">
                 <p>喧嚣三里屯</p>
                 <p>繁华的背后</p>
@@ -71,7 +68,7 @@
           </div>
           <div class="item">
             <div class="item-content">
-              <img src="" alt="" class="left" />
+              <van-icon name="photo-fail" />
               <div class="right">
                 <p>比邻十号线</p>
                 <p>地铁心连心</p>
@@ -100,14 +97,44 @@ export default {
 </script>
 
 <style scoped lang='less'>
-.searchs {
+/deep/ .searchs {
   position: absolute;
   top: 50px;
-  width: 100%;
+  width: 620px;
   padding: 0 20px;
+  margin-left: 20px;
+  z-index: 2;
+  .search-left{
+    width: 80px;
+    height: 40px;
+    border-right:solid 0.5px #ececec;
+    z-index: 2;
+    display: flex;
+    justify-content: space-around;
+    .name{
+      display: block;
+      font-size: 14px;
+      line-height: 40px;
+      color:#333;
+    }
+    .van-icon{
+      display: block;
+      font-size: 14px;
+      line-height: 40px;
+      margin-right: 8x;
+      margin-left: 4px;
+    }
+  }
+}
+.home-icon0 {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
   z-index: 2;
 }
-.my-swipe .van-swipe-item {
+/deep/ .my-swipe .van-swipe-item {
   position: relative;
   top: 0;
   color: #fff;
@@ -120,7 +147,7 @@ export default {
     height: 424px;
   }
 }
-/deep/ .van-grid-item__icon::before {
+.van-grid-item__icon::before {
   width: 80px;
   height: 80px;
   text-align: center;
@@ -156,12 +183,12 @@ export default {
       height: 120px;
       margin-bottom: 10px;
       display: flex;
-      .item {
+      /deep/ .item {
         width: 345px;
         height: 100px;
         flex: 1;
         margin-right: 20px;
-        margin-left: 0;
+        margin-left: 10px;
         background-color: #fff;
         border-radius: 5px;
         .item-content {

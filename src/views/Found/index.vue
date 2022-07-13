@@ -10,9 +10,10 @@
         ><van-search
           v-model="value"
           placeholder="请输入小区或地址"
-          label="地址"
+          label="上海"
+          class="found-search"
       /></template>
-      <template #right-text><van-icon name="search-o" color="red" /></template>
+      <template #right-text><van-icon name="search-o" color="red" class="search"/></template>
     </van-nav-bar>
     <van-sticky>
       <van-dropdown-menu>
