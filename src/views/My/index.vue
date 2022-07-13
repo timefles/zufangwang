@@ -10,9 +10,17 @@
         <div class="my-user">
           <div class="my-name">好客_68564</div>
           <div class="my-edit">
-            <a href="" class="my-denglu">
+            <!-- <a href="" class="my-denglu" v-if="user && user.token">
               <span>退出</span>
-            </a>
+            </a> -->
+            <van-button
+              class="logout"
+              type="default"
+              block
+              v-if="user && user.token"
+              @click="logout"
+              >退出</van-button
+            >
           </div>
           <div class="my-code">
             编辑个人资料
@@ -30,10 +38,13 @@
         </div>
         <div class="my-user">
           <div class="my-name">游客</div>
-          <div class="my-edit">
-            <a href="" class="my-denglu">
-              <span>去登录</span>
-            </a>
+          <div class="my-edit" @click="$router.push('/login')">
+            <van-button
+              class="logout"
+              type="default"
+              block
+              >去登录</van-button
+            >
           </div>
         </div>
       </div>
@@ -130,26 +141,32 @@ export default {
     .my-user {
       padding-top: 15px;
       .my-name {
-        font-size: 14px;
+        font-size: 13px;
         margin-top: -30px;
         margin-bottom: 40px;
       }
       .my-edit {
         color: #999;
         font-size: 12px;
-        margin-top: 20px;
-        .my-denglu {
+        // margin-top: 20px;
+        .logout {
           background-color: #21b97a;
           font-size: 13px;
-          height: 60px;
-          line-height: 60px;
+          width: 108px;
+          height: 41px;
+          line-height: 41px;
           padding: 0 15px;
           display: inline-block;
-          border-radius: 5px;
+          border-radius: 20px;
           span {
             color: #fff;
           }
         }
+      }
+      .my-code {
+        padding-top: 60px;
+        font-size: 12px;
+        color: #999;
       }
     }
   }
