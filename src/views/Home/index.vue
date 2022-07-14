@@ -9,7 +9,7 @@
         </div>
       </template>
     </van-search>
-    <van-icon name="user-o" class="home-icon0" />
+    <van-icon name="user-o" class="home-icon0" @click="$router.push('/map')" />
     <!-- 轮播图 -->
     <van-swipe class="my-swipe" :autoplay="3000" indicator-color="#888888">
       <van-swipe-item>
@@ -27,7 +27,12 @@
       <van-grid-item icon="home-o" text="整租" style="color: #4eaa6d" />
       <van-grid-item icon="friends-o" text="合租" style="color: #4eaa6d" />
       <van-grid-item icon="location-o" text="地图找房" style="color: #4eaa6d" />
-      <van-grid-item icon="home-o" text="去出租" style="color: #4eaa6d" />
+      <van-grid-item
+        icon="home-o"
+        text="去出租"
+        style="color: #4eaa6d"
+        @click="$router.push('/resources')"
+      />
     </van-grid>
     <!-- 租房小组 -->
     <div class="group">
@@ -104,20 +109,20 @@ export default {
   padding: 0 20px;
   margin-left: 20px;
   z-index: 2;
-  .search-left{
+  .search-left {
     width: 80px;
     height: 40px;
-    border-right:solid 0.5px #ececec;
+    border-right: solid 0.5px #ececec;
     z-index: 2;
     display: flex;
     justify-content: space-around;
-    .name{
+    .name {
       display: block;
       font-size: 14px;
       line-height: 40px;
-      color:#333;
+      color: #333;
     }
-    .van-icon{
+    .van-icon {
       display: block;
       font-size: 14px;
       line-height: 40px;

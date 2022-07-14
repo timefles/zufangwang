@@ -41,8 +41,8 @@ export default {
     return {
       username: 'itheima',
       password: '123456',
-      time: 5 * 1000
-      // isCountDownSgow: false
+      time: 5 * 1000,
+      isCountDownSgow: false
     }
   },
   methods: {
